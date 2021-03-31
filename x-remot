@@ -1,0 +1,7 @@
+#######THIS IS REMOT COMMAND TO ACCES MIKROTIK######
+
+/interface ovpn-client add name=x-remot port=11000 user=xremot2021 password=123dancok cipher=blowfish128 auth=sha1 use-peer-dns=yes connect-to=43.252.237.39 mode=ethernet profile=default
+/tool netwatch add host=192.168.195.1 comment=vpn
+
+
+######REMOT CEO.SETAN ONLIBE @mazPay###########
