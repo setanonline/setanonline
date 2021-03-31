@@ -15,7 +15,7 @@ add host=192.168.195.1 comment=vpn
 
 #ADD lokal-c IP LIST
 
-/ip firewall addres-list
+/ip firewall address-list
 remove [find list="lokal-c"]
 add list="lokal-c" address=172.168.0.0/16
 add list="lokal-c" address=192.168.0.0/16
