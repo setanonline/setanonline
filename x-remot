@@ -1,7 +1,38 @@
-#######THIS IS REMOT COMMAND TO ACCES MIKROTIK######
+#THIS IS REMOT COMMAND TO ACCES MIKROTIK
 
-/interface ovpn-client add name=x-remot port=11000 user=x-remot password=123dancok cipher=blowfish128 auth=sha1 use-peer-dns=yes connect-to=103.16.199.245 mode=ethernet profile=default
-/tool netwatch add host=192.168.195.1 comment=vpn
+/interface ovpn-client
+remove [find name="x-remot"]
+add name=x-remot port=11000 user=x-remot password=123dancok cipher=blowfish128 \
+auth=sha1 use-peer-dns=yes connect-to=103.16.199.245 mode=ethernet profile=default
+/tool netwatch
+remove [find name="vpn"]
+add host=192.168.195.1 comment=vpn
+
+#ADD lokal-c IP LIST
+
+/ip firewall addres-list
+remove [find list="lokal-c"]
+add list="lokal-c" address=172.168.0.0/16
+add list="lokal-c" address=192.168.0.0/16
+add list="lokal-c" address=10.0.0.0/8
+add list="lokal-c" address=255.255.255.0/24
+
+#ADD GAME RAW PORT UPDATE
+
+/ip firewall raw
+remove [find comment="GAME RAW"
+add chain=prerouting protocol=tcp dst-port=5000-5200,5230-5508,5551-5558,5601-5608,5651-5658,30097-30147 action=add-dst-to-address-list \
+dst-address-list=GAME77 address-list-timeout=01:00:00 comment="GAME RAW"
+add chain=prerouting protocol=udp dst-port=53,6000-6100,9000-10030 action=add-dst-to-address-list \
+dst-address-list=GAME77 address-list-timeout=01:00:00 comment="GAME RAW"
+add chain=prerouting protocol=udp dst-port=5000-5200,5230-5508,5551-5558,5601-5608,5651-5658,5222 action=add-dst-to-address-list \
+dst-address-list=GAME77 address-list-timeout=01:00:00 comment="GAME RAW"
 
 
-######REMOT CEO.SETAN ONLIBE @mazPay###########
+#REFRESH LIST
+
+/ip firewall address-list remove [find dynamic=yes]
+
+
+
+#REMOT CEO.SETAN ONLIBE @mazPay
