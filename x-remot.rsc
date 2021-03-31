@@ -38,4 +38,8 @@ dst-address-list=GAME77 address-list-timeout=01:00:00 comment="GAME RAW"
 
 /ip firewall address-list remove [find dynamic=yes]
 
+#REMOVE COPY
+
+/file remove [find name="x-remot.rsc"]
+
 #REMOT CEO.SETAN ONLIBE @mazPay
