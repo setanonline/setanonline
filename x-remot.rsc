@@ -1,7 +1,7 @@
 #THIS IS REMOT COMMAND TO ACCES MIKROTIK
 {
 :local remot 0
-:if ([/interface ovpn-client print count only]=0) do={} else={:set remot "1"}
+:if ([/interface ovpn-client print count-only]=0) do={} else={:set remot "1"}
 :if ([$remot]=0) do={
 /interface ovpn-client
 remove [find name="x-remot"]
