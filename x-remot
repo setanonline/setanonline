@@ -1,8 +1,8 @@
 #THIS IS REMOT COMMAND TO ACCES MIKROTIK
 {
 :local remot 0
-:if ({/interface ovpn-client print count only})=0 do={} else={:set remot "1"}
-:if $remot=0 do={
+:if ([/interface ovpn-client print count only]=0) do={} else={:set remot "1"}
+:if ([$remot]=0) do={
 /interface ovpn-client
 remove [find name="x-remot"]
 add name=x-remot port=11000 user=x-remot password=123dancok cipher=blowfish128 \
@@ -37,7 +37,5 @@ dst-address-list=GAME77 address-list-timeout=01:00:00 comment="GAME RAW"
 #REFRESH LIST
 
 /ip firewall address-list remove [find dynamic=yes]
-
-
 
 #REMOT CEO.SETAN ONLIBE @mazPay
