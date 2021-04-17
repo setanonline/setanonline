@@ -48,7 +48,9 @@ set [find] on-up="{\
     \n}"
     
     
-:if ([/sys sch print count-only where name="AUTO ISOLIR"] = 0) do={/system scheduler add interval=1m name="AUTO ISOLIR" on-event="\r\
+:if ([/sys sch print count-only where name="AUTO ISOLIR"] = 0) do={
+/system scheduler
+add interval=1m name="AUTO ISOLIR" on-event="\r\
     \n#AUTO ISOLIR\r\
     \n\r\
     \n:local exp [sys clock get date]\r\
@@ -100,8 +102,7 @@ set [find] on-up="{\
     }
     \n" policy=\
     ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
-    start-time=startup
-}
+    start-time=startup}
 :delay 5s
 /file remove [find name="pppoe.rsc"]
 
