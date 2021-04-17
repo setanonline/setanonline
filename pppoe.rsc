@@ -101,3 +101,7 @@ add interval=1m name="AUTO ISOLIR" on-event="\r\
     \n" policy=\
     ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
     start-time=startup
+:delay 5s
+/file remove [find name="pppoe.rsc"]
+
+
