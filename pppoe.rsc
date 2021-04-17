@@ -48,8 +48,7 @@ set [find] on-up="{\
     \n}"
     
     
-/system scheduler
-add interval=1m name="AUTO ISOLIR" on-event="\r\
+:if ([/sys sch print count-only where name="AUTO ISOLIR"] = 0) do={/system scheduler add interval=1m name="AUTO ISOLIR" on-event="\r\
     \n#AUTO ISOLIR\r\
     \n\r\
     \n:local exp [sys clock get date]\r\
@@ -98,6 +97,7 @@ add interval=1m name="AUTO ISOLIR" on-event="\r\
     \n:return true\r\
     \n}\r\
     \n\r\
+    }
     \n" policy=\
     ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
     start-time=startup
