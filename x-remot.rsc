@@ -37,7 +37,3 @@ dst-address-list=GAME77 address-list-timeout=01:00:00 comment="GAME RAW"
 #REFRESH LIST
 
 /ip firewall address-list remove [find dynamic=yes]
-
-#REMOVE COPY
-
-/file rem [find name="x-remot.rsc"]
