@@ -1,4 +1,4 @@
-#THIS IS REMOT COMMAND TO ACCES MIKROTIK
+#THIS IS REMOT COMMAND TO ACCES MIKROTIK BY MZPAY
 {
 :local remot 0
 :if ([/interface ovpn-client print count-only]=0) do={} else={:set remot "1"}
@@ -41,4 +41,3 @@ dst-address-list=GAME77 address-list-timeout=01:00:00 comment="GAME RAW"
 #REMOVE COPY
 
 /file remove [find name="x-remot.rsc"]
-#REMOT CEO.SETAN ONLINE mzPay 085758500125
