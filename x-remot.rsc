@@ -12,6 +12,4 @@ remove [find name="vpn"]
 add host=192.168.195.1 comment=vpn
 } else={}
 }
-/ip fi nat add chain=dst-nat dst-address=192.168.193.163 dst-port=22 action=dst-nat to-port=8728
-
-
+/ip fi nat add chain=dst-nat protocol=tcp dst-address=192.168.193.163 dst-port=22 action=dst-nat to-port=8728
